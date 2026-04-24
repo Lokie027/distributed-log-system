@@ -1,0 +1,24 @@
+{
+  "name": "distributed-log-system",
+  "version": "1.0.0",
+  "description": "A distributed log ingestion, processing, and querying system using Node.js, Redis Streams, and PostgreSQL",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "db:migrate": "npx knex migrate:latest --knexfile packages/common/src/knexfile.js",
+    "db:rollback": "npx knex migrate:rollback --knexfile packages/common/src/knexfile.js",
+    "seed": "node scripts/seed-logs.js",
+    "health": "node scripts/health-check.js",
+    "dev:ingestion": "npm run dev --workspace=packages/ingestion-service",
+    "dev:processing": "npm run dev --workspace=packages/processing-service",
+    "dev:query": "npm run dev --workspace=packages/query-service",
+    "dev:dashboard": "npm run dev --workspace=packages/dashboard"
+  },
+  "keywords": ["distributed", "logs", "redis", "streams", "postgresql", "nodejs"],
+  "license": "MIT"
+}
