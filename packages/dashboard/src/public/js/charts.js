@@ -6,18 +6,18 @@ let volumeChart = null;
 let levelChart = null;
 
 const chartColors = {
-  accent: 'rgba(99, 102, 241, 0.8)',
-  accentBg: 'rgba(99, 102, 241, 0.1)',
-  debug: 'rgba(6, 182, 212, 0.8)',
-  info: 'rgba(99, 102, 241, 0.8)',
-  warn: 'rgba(234, 179, 8, 0.8)',
-  error: 'rgba(239, 68, 68, 0.8)',
+  accent: 'rgba(129, 140, 248, 0.9)',
+  accentBg: 'rgba(99, 102, 241, 0.08)',
+  debug: 'rgba(6, 182, 212, 0.85)',
+  info: 'rgba(129, 140, 248, 0.85)',
+  warn: 'rgba(245, 158, 11, 0.85)',
+  error: 'rgba(239, 68, 68, 0.85)',
   fatal: 'rgba(239, 68, 68, 1)',
 };
 
 const chartDefaults = {
-  color: '#94a3b8',
-  borderColor: 'rgba(255,255,255,0.06)',
+  color: '#8b95a8',
+  borderColor: 'rgba(255,255,255,0.04)',
 };
 
 /**

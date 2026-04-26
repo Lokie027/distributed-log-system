@@ -11,8 +11,10 @@ let totalPages = 1;
 const elements = {
   statTotal: document.getElementById('statTotal'),
   statErrorRate: document.getElementById('statErrorRate'),
+  statSuccessRate: document.getElementById('statSuccessRate'),
   statLogsPerMin: document.getElementById('statLogsPerMin'),
   statSources: document.getElementById('statSources'),
+  lastUpdated: document.getElementById('lastUpdated'),
   tableCount: document.getElementById('tableCount'),
   logTableBody: document.getElementById('logTableBody'),
   pageInfo: document.getElementById('pageInfo'),
@@ -63,8 +65,17 @@ async function loadStats() {
 
     elements.statTotal.textContent = formatNumber(stats.total);
     elements.statErrorRate.textContent = `${stats.errorRate}%`;
+    if (elements.statSuccessRate) {
+      const successRate = stats.errorRate != null ? (100 - parseFloat(stats.errorRate)).toFixed(2) : '—';
+      elements.statSuccessRate.textContent = `${successRate}%`;
+    }
     elements.statLogsPerMin.textContent = formatNumber(stats.logsPerMinute);
     elements.statSources.textContent = formatNumber(stats.activeSources);
+    if (elements.lastUpdated) {
+      elements.lastUpdated.textContent = new Date().toLocaleString('en-IN', {
+        month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+      });
+    }
 
     // Populate source filter dropdown
     if (stats.topSources && stats.topSources.length > 0) {
