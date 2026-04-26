@@ -17,7 +17,8 @@
     "dev:ingestion": "npm run dev --workspace=packages/ingestion-service",
     "dev:processing": "npm run dev --workspace=packages/processing-service",
     "dev:query": "npm run dev --workspace=packages/query-service",
-    "dev:dashboard": "npm run dev --workspace=packages/dashboard"
+    "dev:dashboard": "npm run dev --workspace=packages/dashboard",
+    "kill": "for port in 3000 3001 3003; do lsof -ti :$port | xargs -r kill -9; done && echo '✅ All service ports cleared'"
   },
   "keywords": ["distributed", "logs", "redis", "streams", "postgresql", "nodejs"],
   "license": "MIT"
