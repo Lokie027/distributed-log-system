@@ -20,6 +20,13 @@
     "dev:dashboard": "npm run dev --workspace=packages/dashboard",
     "kill": "for port in 3000 3001 3003; do lsof -ti :$port | xargs -r kill -9; done && echo '✅ All service ports cleared'"
   },
-  "keywords": ["distributed", "logs", "redis", "streams", "postgresql", "nodejs"],
+  "keywords": [
+    "distributed",
+    "logs",
+    "redis",
+    "streams",
+    "postgresql",
+    "nodejs"
+  ],
   "license": "MIT"
 }
